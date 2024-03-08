@@ -1,0 +1,55 @@
+
+
+<div>
+    <input #color (keyup)="textColors(color.value)" />
+    <input #font (keyup)="fontChange(font.value)" placeholder="Enter font size" />
+    <h1 [style.color]="textColor" [style.font-size.px]="fontSize">rk Color Text</h1>
+  </div>
+  <div *ngFor="let c of countries">
+    {{ c }}
+  </div>
+  <div *ngIf="present === 'admin1'">
+    Hii bro where ar uu
+  </div>
+  <input #name (keyup)="employeeName(name.value)" />
+  <div>
+    <label for="cityDropdown">Select City:</label>
+    <select id="cityDropdown" [(ngModel)]="selectedCity" (change)="updateFilteredEmployees()">
+      <option value="">All</option>
+      <option *ngFor="let cuu of employee" [value]="cuu.city">{{ cuu.city }}</option>
+    </select>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <td>Name</td>
+        <td>Id</td>
+        <td>City</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of filteredEmployees">
+        <td>{{ emp.name }}</td>
+        <td>{{ emp.id }}</td>
+        <td>{{ emp.city }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <!-- <table>
+    <thead>
+      <tr>
+        <td>Name</td>
+        <td>Id</td>
+        <td>City</td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let emp of filterCity">
+        <td>{{ emp.name }}</td>
+        <td>{{ emp.id }}</td>
+        <td>{{ emp.city }}</td>
+      </tr>
+    </tbody>
+  </table>
+   -->
+

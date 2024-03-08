@@ -1,0 +1,8 @@
+
+<p>welcomw {{name}}</p>
+<body>
+    <div> Welcome {{name}} </div>
+    <input type="text" [disabled]=isDisabled>
+    <h2 *ngIf="displayName" else elseBlock> Hii ra {{name}}</h2>
+    <h2 #elseBlock> welcome ra {{name}}</h2>
+</body>

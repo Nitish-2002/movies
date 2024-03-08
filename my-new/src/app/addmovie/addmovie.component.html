@@ -1,0 +1,93 @@
+<p>addmovie works!</p>
+<div class="container">
+  <form [formGroup]="movieFormGroup">
+    <div>
+      Movie Id:
+      <input type="number" class="form-control" formControlName="movie_id" />
+      <div
+        *ngIf="
+          movieFormGroup.get('movie_id')?.hasError('required') &&
+          movieFormGroup.get('movie_id')?.touched
+        "
+      >
+        <span class="error-text">Please enter Movie Id</span>
+      </div>
+    </div>
+    <div>
+      Movie Name:
+      <input type="text" class="form-control" formControlName="movie_name" />
+      <div
+        *ngIf="
+          movieFormGroup.get('movie_name')?.hasError('required') &&
+          movieFormGroup.get('movie_name')?.touched
+        "
+      >
+        <span class="error-text">Please enter Movie Name</span>
+      </div>
+    </div>
+    <div>
+      Movie Poster:
+      <input
+        type="file"
+        (change)="convertToBase64($event)"
+        formControlName="movie_poster"
+        class="form-control"
+      />
+      <img
+        id="poster-url"
+        *ngIf="movieFormGroup.get('movie_poster')?.value"
+        [src]="posterUrl"
+        alt="Selected Poster"
+        class="form-control"
+      />
+    </div>
+    <div>
+      Release Date:
+      <input type="date" class="form-control" formControlName="movie_date" />
+      <div
+        *ngIf="
+          movieFormGroup.get('movie_date')?.hasError('required') &&
+          movieFormGroup.get('movie_date')?.touched
+        "
+      >
+        <span class="error-text">Please enter Movie Dtae</span>
+      </div>
+    </div>
+    <div>
+      Actor:
+      <input type="text" class="form-control" formControlName="movie_actor" />
+      <div
+        *ngIf="
+          movieFormGroup.get('movie_actor')?.hasError('required') &&
+          movieFormGroup.get('movie_actor')?.touched
+        "
+      >
+        <span class="error-text">Please enter Movie Actor</span>
+      </div>
+    </div>
+    <div>
+      Description:
+      <input
+        type="text"
+        class="form-control"
+        formControlName="movie_description"
+      />
+      <div
+        *ngIf="
+          movieFormGroup.get('movie_description')?.hasError('required') &&
+          movieFormGroup.get('movie_description')?.touched
+        "
+      >
+        <span class="error-text">Please enter Email</span>
+      </div>
+    </div>
+    <button
+      class="btn btn-primary"
+      (click)="saveMovie()"
+      [disabled]="!movieFormGroup.valid"
+    >
+      Save
+    </button>
+    <button class="btn btn-danger" (click)="reset()">Cancel</button>
+  </form>
+</div>

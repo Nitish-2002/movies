@@ -1,0 +1,48 @@
+<div class="container">
+    <form [formGroup]="movieFormGroup">
+        <div>
+        Movie Id:   <input type="number" class="form-control" formControlName="mid" />
+        <div *ngIf="movieFormGroup.get('mid')?.hasError('required') && movieFormGroup.get('mid')?.touched">
+            <span class="error-text">Please enter Movie Id</span>
+        </div>
+        </div>
+        <div>
+        Movie Name: <input type="text" class="form-control" formControlName="mname" />
+        <div *ngIf="movieFormGroup.get('mname')?.hasError('required') && movieFormGroup.get('mname')?.touched">
+            <span class="error-text">Please enter Movie Name</span>
+        </div>
+        </div>
+        <div>
+        Movie Poster: <input type="text" class="form-control" formControlName="mposter" />
+        <div *ngIf="movieFormGroup.get('mposter')?.hasError('required') && movieFormGroup.get('mposter')?.touched">
+            <span class="error-text">Please enter Movie Poster</span>
+        </div>
+        </div>
+        <div>
+        Release Date: <input type="date" class="form-control" formControlName="mdate" />
+        <div *ngIf="movieFormGroup.get('mdate')?.hasError('required') && movieFormGroup.get('mdate')?.touched">
+            <span class="error-text">Please enter Movie Dtae</span>
+        </div>
+        </div>
+        <div>
+        Actor: <input type="text" class="form-control" formControlName="mactor" />
+        <div *ngIf="movieFormGroup.get('mactor')?.hasError('required') && movieFormGroup.get('mactor')?.touched">
+            <span class="error-text">Please enter Movie Actor</span>
+        </div>
+        </div>
+        <div>
+            Email: <input type="text" class="form-control" formControlName="memail" />
+            <div *ngIf="movieFormGroup.get('memail')?.hasError('required') && movieFormGroup.get('memail')?.touched">
+                <span class="error-text">Please enter Email</span>
+            </div>
+        </div>
+        <div>
+        Phone Numeber: <input type="number" class="form-control" formControlName="mphno" />
+        <div *ngIf="movieFormGroup.get('mphno')?.hasError('required') && movieFormGroup.get('mphno')?.touched">
+            <span class="error-text">Please enter Phno</span>
+        </div>
+    </div>
+        <button class="btn btn-primary" (click)="saveMovie()" [disabled]="!movieFormGroup.valid">Save</button>
+        <button class="btn btn-danger" (click)="reset()">Cancel</button>
+    </form>
+</div>

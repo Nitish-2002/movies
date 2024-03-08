@@ -1,0 +1,44 @@
+<p>edit-movie works!</p>
+<p>addmovie works!</p>
+<div class="container">
+    <form [formGroup]="MovieGroup">
+        <div>
+        Movie Id:   <input type="number" class="form-control" formControlName="movie_id" />
+        <div *ngIf="MovieGroup.get('movie_id')?.hasError('required') && MovieGroup.get('movie_id')?.touched">
+            <span class="error-text">Please enter Movie Id</span>
+        </div>
+        </div>
+        <div>
+        Movie Name: <input type="text" class="form-control" formControlName="movie_name" />
+        <div *ngIf="MovieGroup.get('movie_name')?.hasError('required') && MovieGroup.get('movie_name')?.touched">
+            <span class="error-text">Please enter Movie Name</span>
+        </div>
+        </div>
+        <div>
+            Movie Poster:
+            <input type="file" formControlName="movie_poster" class="form-control">
+            <img src="{{ posterUrl }}" width="100px" height="100px" alt="Selected Poster" >
+
+          </div>
+        <div>
+        Release Date: <input type="date" class="form-control" formControlName="movie_date" />
+        <div *ngIf="MovieGroup.get('movie_date')?.hasError('required') && MovieGroup.get('movie_date')?.touched">
+            <span class="error-text">Please enter Movie Date</span>
+        </div>
+        </div>
+        <div>
+        Actor: <input type="text" class="form-control" formControlName="movie_actor" />
+        <div *ngIf="MovieGroup.get('movie_actor')?.hasError('required') && MovieGroup.get('movie_actor')?.touched">
+            <span class="error-text">Please enter Movie Actor</span>
+        </div>
+        </div>
+        <div>
+            Description: <input type="text" class="form-control" formControlName="movie_description" />
+            <div *ngIf="MovieGroup.get('movie_description')?.hasError('required') && MovieGroup.get('movie_description')?.touched">
+                <span class="error-text">Please enter Email</span>
+            </div>
+        </div>
+        <button class="btn btn-primary" (click)="updateMovie()" >Update</button>
+        <!-- <button class="btn btn-danger" (click)="reset()">Cancel</button> -->
+    </form>
+</div>
